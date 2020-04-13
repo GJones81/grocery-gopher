@@ -18,8 +18,10 @@ app.use(express.static('static'))
 
 //ROUTES
 
-//create homepage route
+//Controllers
+app.use('/auth', require('./controllers/auth'))
 
+//create homepage route
 app.get('/', (req, res) => {
 	res.render('homepage')
 })
