@@ -10,6 +10,9 @@ let app = express()
 //set template language to ejs
 app.set('view engine', 'ejs')
 
+//Decrypt the variables coming via POST routes aka forms
+app.use(express.urlencoded({extended: false}))
+
 //tell express to use the layouts module
 app.use(layouts)
 

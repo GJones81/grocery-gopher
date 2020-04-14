@@ -11,5 +11,10 @@ router.get('/signup', (req, res) => {
 	res.render('auth/signup')
 })
 
+router.post('/login', (req, res) =>{
+	console.log('DATA', req.body)
+	res.send('Hello from the post route')
+})
+
 //Export (allow this file to be included in another page)
 module.exports = router

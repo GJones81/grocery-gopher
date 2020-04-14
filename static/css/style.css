@@ -10,29 +10,12 @@ h1 {
 	color: skyblue;
 }
 
-nav,
-footer {
-	background-color: #5d4954;
-	color: #fff;
-	padding: 15px 0;
-}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-nav ul {
-	list-style-type: none;
-}
-
-nav li {
-	display: inline;
-	margin-right: 15px;
-}
-
-nav a {
-	text-decoration: none;
-	color: white;
-
-}
-
-nav a:hover {
-	color: bisque;
-	text-decoration: underline;
-}
+ main {
+    flex: 1 0 auto;
+  }
