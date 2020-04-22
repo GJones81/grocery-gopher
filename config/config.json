@@ -1,0 +1,12 @@
+{
+  "development": {
+    "database": "auth",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}

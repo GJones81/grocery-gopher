@@ -20,6 +20,17 @@
     <script>  document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems,{});
+
+    var startDate = new Date()
+    startDate.setFullYear(startDate.getFullYear() - 30)
+
+    var elems2 = document.querySelectorAll('.datepicker')
+    var instances2 = M.Datepicker.init(elems2, {
+    	autoClose: true,
+    	defaultDate: startDate,
+    	yearRange: 30,
+    	maxDate: (new Date())
+    })
   });</script>
    </body>
 </html>
