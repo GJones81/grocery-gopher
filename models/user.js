@@ -48,8 +48,19 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+
+
   user.associate = function(models) {
     // associations can be defined here
   };
+
+user.prototype.validPassword = function(typedInPassword) {
+  //Determine if the password typed in hashes to the same string 
+  //as the existing hash
+  let correctPassword = bcrypt.compareSync(typedInPassword, this.password)
+  //Return the boolean result
+  return correctPassword
+}
+
   return user;
 };
