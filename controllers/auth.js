@@ -54,13 +54,16 @@ router.post('/signup', (req, res) => {
 				err.errors.forEach(e => {
 					req.flash('error', e.message)
 				})
+				//put the user back onto the signup form to try again
+				res.render('auth/signup', {data: req.body, alerts: req.flash() })
 			}
 			else {
 				req.flash('error', 'Server error')
-			}
 
 			//Redirect back to sign up
 			res.redirect('/auth/signup')
+			
+			}
 		})
 	}
 })

@@ -1,5 +1,7 @@
 //MODULES
 //require needed modules
+require('dotenv').config()
+
 let express = require('express')
 let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
@@ -24,7 +26,7 @@ app.use(express.urlencoded({extended: false}))
 
 //Set up sessions -- Server-side data-storage
 app.use(session ({
-	secret: 'any string is fine',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true
 }))
@@ -45,6 +47,7 @@ app.use((req, res, next) => {
 
 //Controllers
 app.use('/auth', require('./controllers/auth'))
+app.use('/profile', require('./controllers/profile'))
 
 //create homepage route
 app.get('/', (req, res) => {
