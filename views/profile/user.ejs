@@ -1,1 +1,10 @@
-<h1>User Profile</h1>
+<h1><%= user.firstname %>'s Profile</h1>
+
+<div class="row">
+	<div class="col s4">
+		<img src="<%= user.pic %>" alt="profile pic">
+	</div>
+	<div>
+		<P><strong>Name:</strong><%= user.firstname %> <%= user.lastname %></P>
+	</div>
+</div>

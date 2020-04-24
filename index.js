@@ -1,7 +1,8 @@
 //MODULES
-//require needed modules
+//Add in environment
 require('dotenv').config()
 
+//Require needed modules
 let express = require('express')
 let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
@@ -9,6 +10,9 @@ let session = require('express-session')
 
 //create app instance
 let app = express()
+
+//Include passport (via the passport config file)
+let passport = require('./config/passportConfig')
 
 //SETTINGS / MIDDLEWARE
 //set template language to ejs
@@ -35,10 +39,15 @@ app.use(session ({
 	//messages (depends of session, order matters)
 app.use(flash())
 
+//Set up passport (depends on sessions, so must come after it)
+app.use(passport.initialize())
+app.use(passport.session())
+
 // Custom middleware - make certain variables available
 //to EJS pages through locals
 app.use((req, res, next) => {
-	res.locals.alerts = req.flash()
+	res.locals.alerts = req.flash(),
+	res.locals.user = req.user
 	next()
 })
 

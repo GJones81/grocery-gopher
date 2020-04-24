@@ -1,6 +1,7 @@
 //Node modules/Variables for routers
 let router = require('express').Router()
 let db = require('../models')
+let passport = require('../config/passportConfig')
 
 //Routes
 
@@ -8,16 +9,18 @@ router.get('/login', (req, res) => {
 	res.render('auth/login')
 })
 
-router.post('/login', (req, res) =>{
-	console.log('DATA', req.body)
-	res.send('Hello from the post route')
-})
+router.post('/login', passport.authenticate('local', {
+	successFlash: 'Successful login - Welcome back!',
+	successRedirect: '/profile/user',
+	failureFlash: 'Invalid password',
+	failureRedirect: '/auth/login'
+}))
 
 router.get('/signup', (req, res) => {
 	res.render('auth/signup', {data: {} })
 })
 
-router.post('/signup', (req, res) => {
+router.post('/signup', (req, res, next) => {
 	console.log('REQUEST BODY', req.body)
 	if (req.body.password != req.body.password_verify) {
 		//Send a message about why things didn't work
@@ -35,9 +38,12 @@ router.post('/signup', (req, res) => {
 		})
 		.then(([user, wasCreated]) => {
 			if (wasCreated) {
-				//They were created - which is good
-				//TO DO: Auto-login
-				res.send('WELCOME!!')
+			passport.authenticate('local', {
+				successFlash: 'Successful login - Welcome!',
+				successRedirect: '/profile/user',
+				failureFlash: 'Invalid password',
+				failureRedirect: '/auth/login'
+			})(req, res, next)
 			}
 			else {
 				// They already had an account!
@@ -68,5 +74,12 @@ router.post('/signup', (req, res) => {
 	}
 })
 
+router.get('/logout', (req, res) => {
+	//Remove user data from the session
+	req.logout()
+	//Tell them goodbye
+	req.flash('success', 'Thanks for stopping by')
+	res.redirect('/')
+})
 //Export (allow this file to be included in another page)
 module.exports = router
