@@ -14,8 +14,7 @@
 		<h3>View User's Pages</h3>
 		<% users.forEach(u => { %>
 			<div>
-				<a href="/profile/guest/<%= u.id %>"></a>
-				<%= u.firstname %>
+				<a href="/profile/guest/<%= u.id %>"><%= u.firstname%></a>
 				<% if (user.id == u.id) { %>
 					(Hey, it's you!)
 				<% } %>
