@@ -73,3 +73,15 @@ git clone https://github.com/GJones81/node-auth-boiler.git new_name_example
 ...sh
 npm i
 ...
+
+### 3. Customize the new project 
+
+Remove defaulty stuff. For example:
+
+* Title in 'layout.ejs'
+* Logo field in the nav bar
+* Description and Repository fields in package.json
+* Remove this boilerplate's readme content (Don't leave this one here on the next project)
+* Switch Favicon to the new project's favicon
+* 
+* 
