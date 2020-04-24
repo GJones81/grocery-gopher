@@ -19,6 +19,14 @@ This is a boiler plate for an express app with local user authentication. It exi
 | Column | Type | Notes |
 |----------|----------|--------------------|
 |id | Integer | Serial primary key|
+|firstname  | String  | User's first name|
+|lastname | String  | User's last name|
+|email |  String  | Unique Login  |
+|password | String  | Hash  |
+|birthday | Date  | - |
+|admin  | Boolean | Defaulted False |
+|pic  | String  | - |
+
 
 ## Included Routes 
 
