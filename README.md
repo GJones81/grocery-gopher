@@ -17,7 +17,7 @@ This is a boiler plate for an express app with local user authentication. It exi
 
 **User Model**
 | Column | Type | Notes |
-|----------|---------|-----------------------------|
+|----------|----------|--------------------|
 |id | Integer | Serial primary key|
 
 ## Included Routes 
