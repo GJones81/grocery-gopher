@@ -83,5 +83,11 @@ Remove defaulty stuff. For example:
 * Description and Repository fields in package.json
 * Remove this boilerplate's readme content (Don't leave this one here on the next project)
 * Switch Favicon to the new project's favicon
-* 
-* 
+
+### 4.
+
+Create new database for new project 
+
+...sh
+createdb new_db_name
+...
