@@ -26,19 +26,30 @@ This is a boiler plate for an express app with local user authentication. It exi
 |birthday | Date  | - |
 |admin  | Boolean | Defaulted False |
 |pic  | String  | - |
+|bio  | Text  | - |
+|createdAt  | Date  | created at  |
+
 
 
 ## Included Routes 
-
+# Index
 | Method  | Path  | Purpose |
 |----------|----------|---------------------|
 |GET  | '/' | Home page |
 |GET  | * | Catch-all for 404|
+
+# Auth
+|Method | Path  | Purpose |
+|----------|-----------|------------|
 |GET  | 'auth/login'| Login Page  |
 |POST | 'auth/login'  | Authentication  |
 |GET  | 'auth/signup' | Signup Page |
 |POST | 'auth/signup' | Creates New User  |
 |GET  | 'auth/logout' | Logs out of the Session|
+
+# Profile
+|Method | Path  | Purpose |
+|----------|----------|--------------------|
 |GET  | 'profile/user'  | User Profile  |
 |GET  | 'profile/guest/:id' | Guest Profile |
 |GET  | 'profile/admin' | Admin Profile |
