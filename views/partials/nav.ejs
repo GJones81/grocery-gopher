@@ -12,6 +12,9 @@
                 <li>
                     <a href="/profile/user">Profile Page</a>
                 </li>
+                <% if (user.admin) { %>
+                    <a href="/profile/admin">Admin Page</a>
+                <% } %>
                 <li>
                     <a href="/auth/logout">Logout</a>
                 </li>
@@ -37,6 +40,9 @@
         <li>
             <a href="/profile/user">Profile Page</a>
         </li>
+        <% if (user.admin) { %>
+            <a href="/profile/admin">Admin Page</a>
+        <%} %>
         <li>
             <a href="/auth/logout">Logout</a>
         </li>

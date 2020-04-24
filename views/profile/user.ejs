@@ -6,5 +6,7 @@
 	</div>
 	<div>
 		<P><strong>Name:</strong><%= user.firstname %> <%= user.lastname %></P>
+		<p><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></p>
+		<p><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
 	</div>
 </div>

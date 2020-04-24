@@ -3,7 +3,8 @@
     "database": "auth",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": "false"
+    "operatorsAliases": "false",
+    "logging": false
   },
   "production": {
     "dialect": "postgres",
