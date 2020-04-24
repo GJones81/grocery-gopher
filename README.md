@@ -55,3 +55,9 @@ This is a boiler plate for an express app with local user authentication. It exi
 |GET  | 'profile/admin' | Admin Profile |
 
 ## Directions for Use
+
+### 1. Clone the repository, but with a different name
+
+...sh
+git clone <repo_link> <new_name>
+...
