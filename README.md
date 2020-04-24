@@ -91,3 +91,13 @@ Create new database for new project
 ...sh
 createdb new_db_name
 ...
+
+### 5.
+
+Alter config.json of the new database
+
+config/config.json
+
+Update database name to new_db_name
+Check username, password, and dialect
+
