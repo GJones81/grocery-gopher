@@ -84,20 +84,77 @@ Remove defaulty stuff. For example:
 * Remove this boilerplate's readme content (Don't leave this one here on the next project)
 * Switch Favicon to the new project's favicon
 
-### 4.
-
-Create new database for new project 
+### 4. Create new database for new project 
 
 ...sh
 createdb new_db_name
 ...
 
-### 5.
-
-Alter config.json of the new database
+### 5. Alter config.json of the new database
 
 config/config.json
 
 Update database name to new_db_name
 Check username, password, and dialect
 
+### 6. Check model 
+
+Check the model for relevance to the requirements of the new project, and change as
+needed. The model will dictate what columns the table has.
+
+### 7. Run Sequelize migrations
+
+...sh
+sequelize db:migrate
+...
+
+### 8. Create a .env file for environment variables
+
+...sh
+touch .env
+...
+
+Include the following .env variables
+
+* SESSION_SECRET  - this is the key for session to use
+
+### 9. Run the server, ensure it works
+
+...sh
+nodemon
+...
+
+Without nodemon
+
+...sh
+node index.js
+...
+
+### 10. Delete the origin that points to the boilerplate repository
+
+If we run this command:
+...sh
+git remote -v
+...
+
+It will show 'origin' as being hooked up to the boilerplate repository. We want a fresh
+repository instead, so let's delete the origin remote:
+
+...sh
+git remote remove origin
+...
+
+### 11. Create an empty git repository
+
+Via the Github website. Follow the directions as they show up when you create a new
+repository
+
+...sh
+git init
+git add .
+git commit -m "Initial Commit"
+git remote add origin <new_repo_link>
+git push origin master
+...
+
+Happy Developing!!
