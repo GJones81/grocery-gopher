@@ -28,6 +28,7 @@ This is a boiler plate for an express app with local user authentication. It exi
 |pic  | String  | - |
 |bio  | Text  | - |
 |createdAt  | Date  | created at  |
+|updatedAt  | Date  | last updated at |
 
 
 
