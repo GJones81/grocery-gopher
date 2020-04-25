@@ -21,9 +21,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      bio: {
-        type: Sequelize.TEXT
-      },
       username: {
         type: Sequelize.STRING
       },
@@ -34,11 +31,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      pic: {
-        type: Sequelize.STRING,
-        defaultValue: 'http://placekitten.com/200/200'
-      },
       zipcode: {
+        type: Sequelize.INTEGER
+      },
+      sharedId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
