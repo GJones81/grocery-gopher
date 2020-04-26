@@ -57,6 +57,10 @@ app.use((req, res, next) => {
 //Controllers
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile'))
+app.use('/inventory', require('./controllers/inventory'))
+app.use('/list', require('./controllers/list'))
+app.use('/recipe', require('./controllers/recipe'))
+app.use('/shopping', require('./controllers/shopping'))
 
 //create homepage route
 app.get('/', (req, res) => {

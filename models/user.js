@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Last name is required'
         }
       }
+    },
     email: {
       type: DataTypes.STRING,
       validate: {
