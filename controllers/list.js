@@ -1,8 +1,10 @@
 let router = require('express').Router()
 let moment = require('moment')
 let db = require('../models')
+let methodOverride = require('method-override')
 
 //route for showing the current shopping list
+//also brings up the form for entering new items
 router.get('/show', (req, res) => {
 	db.active_list.findAll()
 	.then((list) => {
@@ -10,21 +12,8 @@ router.get('/show', (req, res) => {
 	})
 })
 
-//route for editing the current list; order of items
-//router.put
-
-//route for deleting the current list once the user 
-//is done with it
-//router.delete
-
-//route to get the form for creating a new shopping list
-router.get('/new', (req, res) => {
-	res.render('list/new')
-})
-
-//route for putting the new items on the new list
+//route for putting the new items on the active_list
 router.post('/new', (req,res) => {
-	console.log(req.body)
 	db.active_list.findOrCreate({ 
 		where: { 
 			userId: req.user.id,
@@ -38,5 +27,11 @@ router.post('/new', (req,res) => {
 		console.log('Error', err )
 	})
 })
+
+//route for editing the current list; order of items
+//router.put
+
+//route for deleting an item on the list
+//router.delete
 
 module.exports = router
