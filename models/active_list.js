@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   active_list.associate = function(models) {
     // associations can be defined here
+    models.active_list.belongsTo(models.user)
   };
   return active_list;
 };

@@ -3,15 +3,16 @@
 <div class="row">
 		<% list.forEach(item => { %>
 			<div class="col s3">
-				<form action="/list/new" method="">
-					
+				<form action="/list/new?_method=DELETE" method="POST">
+					<input type="hidden" name="item_name" value="<%= item.item_name %>" >
+					<input type="submit">
 				</form>
 			</div>
 			<div class="col s6">
-				<h2><%= item.item_name %></h2>
+				<p><strong><%= item.item_name %></strong></h2>
 			</div>
 			<div class=" col s3">
-				
+				<p>Edit Function Here</p>
 			</div>
 		<% }) %>
 </div>
