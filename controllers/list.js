@@ -28,7 +28,9 @@ router.post('/index', (req,res) => {
 })
 
 //route for editing the current list; order of items
-//router.put
+router.put('/index', (req, res) => {
+	res.send('Hit The PUT')
+})
 
 //route for deleting an item on the list
 router.delete('/index', (req, res) => {

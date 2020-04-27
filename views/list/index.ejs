@@ -12,14 +12,17 @@
 				<p><strong><%= item.item_name %></strong></h2>
 			</div>
 			<div class=" col s3">
-				<p>Edit Function Here</p>
+				<form action="/list/index?_method=PUT" method="POST">
+				<input type="integer" name="listOrder" value=0>
+				<input type="submit">
+				</form>
 			</div>
 		<% }) %>
 </div>
 
 <h1>Add Items to Your List</h1>
 <div class="row">
-	<div class="col s12">
+	<div class="col s6">
 		<form action="/list/index" method="POST">
 			<input type="text" name="item_name">
 			<input type="submit">

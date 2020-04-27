@@ -22,9 +22,9 @@ router.get('/new', (req, res) => {
 	let edamamAPI = `https://api.edamam.com/search?q=${req.query.ingredient}&app_id=${process.env.EDAMAM_APP_ID}&app_key=${process.env.EDAMAM_APP_KEY}`
 	axios.get(edamamAPI)
 	.then((apiResponse) => {
-		let recipeData = apiResponse.data
+		let recipeData = apiResponse.data.hits
 		console.log(recipeData)
-		res.render('recipe/new', { recipeData })
+		res.render('recipe/show', { recipeData })
 	})
 	.catch((err) => {
 		console.log('Error', err)
