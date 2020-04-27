@@ -7,6 +7,7 @@ let express = require('express')
 let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
 let session = require('express-session')
+let methodOverride = require('method-override')
 
 //create app instance
 let app = express()
@@ -27,6 +28,9 @@ app.use(express.static('static'))
 
 //Decrypt the variables coming via POST routes aka forms
 app.use(express.urlencoded({extended: false}))
+
+//method-override middleware
+app.use(methodOverride('_method'))
 
 //Set up sessions -- Server-side data-storage
 app.use(session ({
