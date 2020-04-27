@@ -3,7 +3,7 @@
 <div class="row">
 		<% list.forEach(item => { %>
 			<div class="col s3">
-				<form action="/list/new?_method=DELETE" method="POST">
+				<form action="/list/index?_method=DELETE" method="POST">
 					<input type="hidden" name="item_name" value="<%= item.item_name %>" >
 					<input type="submit">
 				</form>
@@ -20,7 +20,7 @@
 <h1>Add Items to Your List</h1>
 <div class="row">
 	<div class="col s12">
-		<form action="/list/new" method="POST">
+		<form action="/list/index" method="POST">
 			<input type="text" name="item_name">
 			<input type="submit">
 		</form>

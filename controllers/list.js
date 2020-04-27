@@ -4,7 +4,7 @@ let db = require('../models')
 
 //route for showing the current shopping list
 //also brings up the form for entering new items
-router.get('/show', (req, res) => {
+router.get('/index', (req, res) => {
 	db.active_list.findAll()
 	.then((list) => {
 		res.render('list/index', { list })
@@ -12,7 +12,7 @@ router.get('/show', (req, res) => {
 })
 
 //route for putting the new items on the active_list
-router.post('/new', (req,res) => {
+router.post('/index', (req,res) => {
 	db.active_list.findOrCreate({ 
 		where: { 
 			userId: req.user.id,
@@ -31,7 +31,7 @@ router.post('/new', (req,res) => {
 //router.put
 
 //route for deleting an item on the list
-router.delete('/new', (req, res) => {
+router.delete('/index', (req, res) => {
 	db.active_list.destroy({
 		where: {
 			userId: req.user.id,

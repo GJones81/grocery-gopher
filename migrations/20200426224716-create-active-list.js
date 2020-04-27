@@ -12,13 +12,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       sharedId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       item_name: {
         type: Sequelize.STRING
       },
       list_order: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,
