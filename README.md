@@ -1,6 +1,5 @@
-# Node Auth Boilerplate
+# Grocery Gopher
 
-This is a boiler plate for an express app with local user authentication. It exists so I have a customized boilerplate and don't have to start from scratch on all my projects
 
 ## What it includes
 
