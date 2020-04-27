@@ -2,11 +2,16 @@
 
 <div class="row">
 	<div class="col s4">
-		<img src="<%= user.pic %>" alt="profile pic">
-	</div>
-	<div>
-		<P><strong>Name:</strong><%= user.firstname %> <%= user.lastname %></P>
-		<p><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></p>
-		<p><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
+		<div>
+			<P><strong>Name:</strong><%= user.firstname %> <%= user.lastname %></P>
+			<p><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></p>
+			<p><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
+		</div>
+		<div>
+			<a href="/list/new">Create a new shopping list</a>
+		</div>
+		<div>
+			<a href="/list/show">Look at your current shopping list</a>
+		</div>
 	</div>
 </div>

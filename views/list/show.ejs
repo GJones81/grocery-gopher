@@ -1,1 +1,11 @@
-<h1>list/show</h1>
+<h1>Your Current Shopping List</h1>
+
+<div class="row">
+	<div class="col s12">
+		<% list.forEach(item => { %>
+			<div>
+				<%= item.item_name %>
+			</div>
+		<% }) %>
+	</div>
+</div>
