@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   inventory_list.associate = function(models) {
     // associations can be defined here
+    models.inventory_list.belongsTo(models.user)
   };
   return inventory_list;
 };
