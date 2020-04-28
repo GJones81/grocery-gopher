@@ -26,8 +26,9 @@ router.get('/new', (req, res) => {
 		console.log(recipeData)
 		res.render('recipe/show', { recipeData })
 	})
-	.catch((err) => {
-		console.log('Error', err)
+	.catch(err => {
+		console.log(err)
+		res.render('error')
 	})
 	
 })

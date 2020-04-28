@@ -3,8 +3,15 @@
 
 <div class="row">
 	<% list.forEach(item => { %>
-	<div class="col s6">
+	<div class="col s9">
 		<p><strong><%= item.item_name %></strong></h2>
+	</div>
+	<div class="col s3">
+		<form action="/shopping/new" method="POST">
+			<input type="hidden" name="userId" value="<%= item.userId %>">
+			<input type="hidden" name="item_name" value="<%= item.item_name%>">
+			<input type="submit">
+		</form>
 	</div>	
 	<% }) %>
 </div>

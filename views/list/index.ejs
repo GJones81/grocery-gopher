@@ -1,25 +1,31 @@
-<h1>Your Current Shopping List</h1>
-
 <div class="row">
-		<% list.forEach(item => { %>
-			<div class="col s3">
-				<form action="/list/index?_method=DELETE" method="POST">
-					<input type="hidden" name="item_name" value="<%= item.item_name %>" >
-					<input type="submit">
-				</form>
-			</div>
-			<div class="col s6">
-				<p><strong><%= item.item_name %></strong></h2>
-			</div>
-			<div class=" col s3">
-				<form action="/list/index?_method=PUT" method="POST">
-				<input type="hidden" name="item_name" value="<%= item.item_name %>">
-				<input type="integer" name="list_order" value=<%= item.list_order %>>
-				<input type="submit">
-				</form>
-			</div>
-		<% }) %>
+	<div class="col s12">
+		<h1>Your Current Shopping List</h1>
+	</div>
 </div>
+
+
+<% list.forEach(item => { %>
+<div class="row">
+	<div class="col s4 push-s8">
+		<form action="/list/index?_method=DELETE" method="POST">
+			<input type="hidden" name="item_name" value="<%= item.item_name %>" >
+			<input type="submit">
+		</form>
+	</div>
+	<div class="col s4">
+		<p><strong><%= item.item_name %></strong></h2>
+	</div>
+	<div class=" col s4 pull-s8">
+		<form action="/list/index?_method=PUT" method="POST">
+		<input type="hidden" name="item_name" value="<%= item.item_name %>">
+		<input type="integer" name="list_order" value=<%= item.list_order %>>
+		<input type="submit">
+		</form>
+	</div>
+</div>			
+<% }) %>
+
 
 <h1>Add Items to Your List</h1>
 <div class="row">

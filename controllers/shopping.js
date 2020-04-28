@@ -9,7 +9,7 @@ let Op = Sequelize.Op
 router.get('/index', (req, res) => {
 	db.active_list.findAll({
 		where: {
-			userId: req.user.id,
+			userId: req.user.id
 		},
 		order: [ 'list_order'],
 		limit: 3
@@ -17,12 +17,31 @@ router.get('/index', (req, res) => {
 	.then((list) => {
 		res.render('shopping/index', { list })
 	})
-	.catch((err) => {
-		console.log('Error', err)
+	.catch(err => {
+		console.log(err)
+		res.render('error')
 	})
 })
 
-//router for adding the 'picked' items to the inventory list
-//router.post
+//router for adding the 'picked' items to the inventory_list
+//also delete the items from the active_list
+router.post('/new', (req, res) => {
+	db.inventory_list.create(req.body)
+	.then(() => {
+		db.active_list.destroy({
+			where: {
+				userId: req.user.id,
+				item_name: req.body.item_name
+			}
+		})
+	})
+	.then(() => {
+		res.redirect('/shopping/index')
+	})
+	.catch(err => {
+		console.log(err)
+		res.render('error')
+	})
+})
 
 module.exports = router

@@ -13,6 +13,10 @@ router.get('/index', (req, res) => {
 	.then((list) => {
 		res.render('list/index', { list })
 	})
+	.catch(err => {
+		console.log(err)
+		res.render('error')
+	})
 })
 
 //route for putting the new items on the active_list
@@ -26,14 +30,14 @@ router.post('/index', (req,res) => {
 	.then(() => {
 		res.redirect('/list/index')
 	})
-	.catch((err) => {
-		console.log('Error', err )
+	.catch(err => {
+		console.log(err)
+		res.render('error')
 	})
 })
 
 //route for editing the current list; order of items
 router.put('/index', (req, res) => {
-	console.log(req.body.list_order)
 	db.active_list.update({
 		list_order: req.body.list_order
 		}, {
@@ -45,8 +49,9 @@ router.put('/index', (req, res) => {
 	.then(() => {
 		res.redirect('/list/index')
 	})
-	.catch((err) => {
-		console.log('Error', err)
+	.catch(err => {
+		console.log(err)
+		res.render('error')
 	})
 })
 
@@ -61,8 +66,9 @@ router.delete('/index', (req, res) => {
 	.then(() => {
 		res.redirect('/list/index')
 	})
-	.catch((err) => {
-		console.log('Error', err)
+	.catch(err => {
+		console.log(err)
+		res.render('error')
 	})
 })
 
