@@ -13,7 +13,8 @@
 			</div>
 			<div class=" col s3">
 				<form action="/list/index?_method=PUT" method="POST">
-				<input type="integer" name="listOrder" value=0>
+				<input type="hidden" name="item_name" value="<%= item.item_name %>">
+				<input type="integer" name="list_order" value=<%= item.list_order %>>
 				<input type="submit">
 				</form>
 			</div>
