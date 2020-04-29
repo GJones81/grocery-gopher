@@ -1,25 +1,46 @@
-<h1><%= user.firstname %>'s Profile</h1>
-
-<div class="row">
-	<div class="col s6">
-		<div>
-			<P><strong>Name:</strong><%= user.firstname %> <%= user.lastname %></P>
-			<p><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></p>
-			<p><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1><%= user.firstname %>'s Profile</h1>
 		</div>
 	</div>
-	<div class="col s6">
-		<div>
-			<a href="/list/index">Your Current Shopping List</a>
+	<div class="row">
+		<div class="col s12 m6">
+			<div class="section">
+				<p><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></p>
+			</div>
 		</div>
-		<div>
-			<a href="/recipe/index">Look Up New Recipes</a>
+		<div class="col s12 m6">
+			<div class="section">
+				<p><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
+			</div>
 		</div>
-		<div>
-			<a href="/shopping/index">Let's Go Shopping!</a>
+	</div>
+	<div class="row">
+		<div class="col s12 m6 l3">
+			<div class="section">
+				<a href="/list/index">Your Current Shopping List</a>
+			</div>
 		</div>
-		<div>
-			<a href="/inventory/index">Would You Like to do an Inventory Check?</a>
+		<div class="col s12 m6 l3">
+			<div class="section">
+				<a href="/recipe/index">Look Up New Recipes</a>
+			</div>
+		</div>
+	<!--</div>
+	<div class="row">-->
+		<div class="col s12 m6 l3">
+			<div class="section">
+				<a href="/shopping/index">Let's Go Shopping!</a>
+			</div>
+		</div>
+		<div class="col s12 m6 l3">
+			<div class="section">
+				<a href="/inventory/index">Would You Like to do an Inventory Check?</a>
+			</div>
 		</div>
 	</div>
 </div>
+
+
+

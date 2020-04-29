@@ -8,10 +8,6 @@ router.get('/index', (req, res) => {
 	res.render('recipe/index')
 })
 
-//route to get the form for user's to input their own recipes
-router.get('/create', (req, res) => {
-	res.render('recipe/create')
-})
 
 //route to add the user's recipes to the database
 //router.post('/create')
@@ -23,7 +19,6 @@ router.get('/new', (req, res) => {
 	axios.get(edamamAPI)
 	.then((apiResponse) => {
 		let recipeData = apiResponse.data.hits
-		console.log(recipeData)
 		res.render('recipe/show', { recipeData })
 	})
 	.catch(err => {
@@ -34,7 +29,7 @@ router.get('/new', (req, res) => {
 })
 
 //route to add recipes selected from the API results
-router.post('/new', (req, res) => {
+router.post('/show', (req, res) => {
 	db.recipe.findOrCreate({
 		where: {
 			userId: req.user.id,
@@ -45,7 +40,7 @@ router.post('/new', (req, res) => {
 		}
 	})
 	.then(() => {
-		res.send('Saved to the database')
+		res.redirect('/recipe/favorite')
 	})
 	.catch(err => {
 		console.log(err)
@@ -54,10 +49,20 @@ router.post('/new', (req, res) => {
 })
 
 //route to get the current list of user's favorite recipes
-router.get('/show', (req, res) => {
-	res.render('recipe/show')
+router.get('/favorite', (req, res) => {
+	db.recipe.findAll({
+		where: {
+			userId: req.user.id
+		}
+	})
+	.then((favorites) => {
+		res.render('recipe/favorite', { favorites })
+	})
+	.catch(err => {
+		console.log(err)
+		res.render('error')
+	})
+	
 })
-
-
 
 module.exports = router

@@ -2,7 +2,7 @@
 
 <% recipeData.forEach(r => { %>
 <div class="row">
-	<form action="/recipe/new" method="POST">
+	<form action="/recipe/show" method="POST">
 		<div class="col s6">
 			<%= r.recipe.label %>
 			<input type="hidden" name="label" value="<%= r.recipe.label%>">
@@ -11,8 +11,9 @@
 				<div>
 					<%= i.text %>
 				</div>
+				<input type="hidden" name="ingredients" value="<%= i.text %>">	
 			<% }) %>
-			<input type="hidden" name="ingredients" value="<%= r.recipe.ingredientLines%>">	
+			
 		</div>
 		<div class="col s6">
 			<img src="<%= r.recipe.image %>">

@@ -6,63 +6,46 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                     <i class="material-icons">menu</i>
                 </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/list/index">Current List</a>
+                    <a href="/profile/user">Profile Page</a>
                 </li>
-                <% if (user) { %>
-                    <li>
-                        <a href="/profile/user">Profile Page</a>
-                    </li>
-                    <% if (user.admin) { %>
-                        <a href="/profile/admin">Admin Page</a>
-                    <% } %>
-                    <li>
-                        <a href="/auth/logout">Logout</a>
-                    </li>
-                    <li>
-                        Hi, <%= user.firstname %>
-                    </li>
-                <% } else { %>
-                    <li>
-                        <a href="/auth/login">Login</a>
-                    </li>
-                    <li>
-                        <a href="/auth/signup">Signup</a>
-                    </li>
-                <% } %>
+                <li>
+                    <a href="/auth/login">Login</a>
+                </li>
+                <li>
+                    <a href="/auth/signup">Signup</a>
+                </li>
+                <li>
+                    <a href="/auth/logout">Logout</a>
+                </li>     
             </ul>
         </div>
     </div>
 </div>
 </nav>
+
+
 <ul class="sidenav" id="mobile-demo">
     <li>
         <a href="/">Home</a>
     </li>
-    <% if (user) { %>
-        <li>
-            <a href="/profile/user">Profile Page</a>
-        </li>
-        <% if (user.admin) { %>
-            <a href="/profile/admin">Admin Page</a>
-        <%} %>
-        <li>
-            <a href="/auth/logout">Logout</a>
-        </li>
-    <% } else { %>
-        <li>
-            <a href="/auth/login">Login</a>
-        </li>
-        <li>
-            <a href="/auth/signup">Signup</a>
-        </li>
-    <% } %>
+    <li>
+        <a href="/profile/user">Profile Page</a>
+    </li>
+
+    <li>
+        <a href="/auth/login">Login</a>
+    </li>
+    <li>
+        <a href="/auth/signup">Signup</a>
+    </li>
+    <li>
+        <a href="/auth/logout">Logout</a>
+    </li>
 </ul>
+
+
