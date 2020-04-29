@@ -1,38 +1,40 @@
 <nav class="orange accent-3">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Grocery Gopher</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-        </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/list/new"></a>
-            </li>
-            <% if (user) { %>
+        <div class="row">
+            <a href="#" class="brand-logo">Grocery Gopher</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
-                    <a href="/profile/user">Profile Page</a>
+                    <a href="/">Home</a>
                 </li>
-                <% if (user.admin) { %>
-                    <a href="/profile/admin">Admin Page</a>
+                <li>
+                    <a href="/list/index">Current List</a>
+                </li>
+                <% if (user) { %>
+                    <li>
+                        <a href="/profile/user">Profile Page</a>
+                    </li>
+                    <% if (user.admin) { %>
+                        <a href="/profile/admin">Admin Page</a>
+                    <% } %>
+                    <li>
+                        <a href="/auth/logout">Logout</a>
+                    </li>
+                    <li>
+                        Hi, <%= user.firstname %>
+                    </li>
+                <% } else { %>
+                    <li>
+                        <a href="/auth/login">Login</a>
+                    </li>
+                    <li>
+                        <a href="/auth/signup">Signup</a>
+                    </li>
                 <% } %>
-                <li>
-                    <a href="/auth/logout">Logout</a>
-                </li>
-                <li>
-                    Hi, <%= user.firstname %>
-                </li>
-            <% } else { %>
-                <li>
-                    <a href="/auth/login">Login</a>
-                </li>
-                <li>
-                    <a href="/auth/signup">Signup</a>
-                </li>
-            <% } %>
-        </ul>
+            </ul>
+        </div>
     </div>
 </nav>
 <ul class="sidenav" id="mobile-demo">

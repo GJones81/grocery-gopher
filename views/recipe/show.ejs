@@ -2,16 +2,24 @@
 
 <% recipeData.forEach(r => { %>
 <div class="row">
-	<div class="col s6">
-		<%= r.recipe.label %>
-		<% r.recipe.ingredients.forEach(i => { %>
-			<div>
-				<%= i.text %>
-			</div>
-		<% }) %>	
-	</div>
-	<div class="col s6">
-		<img src="<%= r.recipe.image %>">
-	</div>
+	<form action="/recipe/new" method="POST">
+		<div class="col s6">
+			<%= r.recipe.label %>
+			<input type="hidden" name="label" value="<%= r.recipe.label%>">
+			<input type="hidden" name="userId" value="<%= r.userId%>">
+			<% r.recipe.ingredients.forEach(i => { %>
+				<div>
+					<%= i.text %>
+				</div>
+			<% }) %>
+			<input type="hidden" name="ingredients" value="<%= r.recipe.ingredientLines%>">	
+		</div>
+		<div class="col s6">
+			<img src="<%= r.recipe.image %>">
+			<input type="hidden" name="image" value="<%= r.recipe.image %>">
+			<input type="hidden" name="url" value="<%= r.recipe.url%>">
+		</div>
+		<input type="submit">
+	</form>
 </div>
 <% }) %>

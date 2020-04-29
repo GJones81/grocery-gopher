@@ -34,7 +34,24 @@ router.get('/new', (req, res) => {
 })
 
 //route to add recipes selected from the API results
-//router.post('/new')
+router.post('/new', (req, res) => {
+	db.recipe.findOrCreate({
+		where: {
+			userId: req.user.id,
+			label: req.body.label,
+			ingredients: req.body.ingredients,
+			image: req.body.image,
+			url: req.body.url
+		}
+	})
+	.then(() => {
+		res.send('Saved to the database')
+	})
+	.catch(err => {
+		console.log(err)
+		res.render('error')
+	})
+})
 
 //route to get the current list of user's favorite recipes
 router.get('/show', (req, res) => {

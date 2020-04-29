@@ -1,0 +1,16 @@
+<h1>Inventory Check</h1>
+<h2>I'll help you remember all the items you consistently buy</h2>
+
+<div class="row">
+		<% results.forEach(item => { %>
+		<div class="col s6">
+			<%= item %>
+		</div>
+		<div class="col s6">
+			<form action="/inventory/index" method="POST">
+				<input type="hidden" name="item_name" value="<%= item %>">
+				<input type="submit">
+			</form>
+		</div>	
+		<% }) %>
+</div>

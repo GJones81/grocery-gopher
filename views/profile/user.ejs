@@ -1,12 +1,14 @@
 <h1><%= user.firstname %>'s Profile</h1>
 
 <div class="row">
-	<div class="col s4">
+	<div class="col s6">
 		<div>
 			<P><strong>Name:</strong><%= user.firstname %> <%= user.lastname %></P>
 			<p><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></p>
 			<p><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
 		</div>
+	</div>
+	<div class="col s6">
 		<div>
 			<a href="/list/index">Your Current Shopping List</a>
 		</div>
@@ -17,7 +19,7 @@
 			<a href="/shopping/index">Let's Go Shopping!</a>
 		</div>
 		<div>
-			<a href="/inventory/show">Would You Like to do an Inventory Check?</a>
+			<a href="/inventory/index">Would You Like to do an Inventory Check?</a>
 		</div>
 	</div>
 </div>
