@@ -18,13 +18,33 @@ router.get('/show', (req,res) => {
 		let dataArray = []
 		data.forEach(object => {
 			dataArray.push(object.item_name)
+			dataArray.sort()
 		})
 		console.log(dataArray)
+
+		let dataString = dataArray.toString()
+		regex = new RegExp(dataArray.join("|"), ("g"))
+		matches = dataString.match(regex)
+		let counter = {}
+		matches.forEach(m => {
+			counter[m] = counter[m] + 1 || 1
+		})
+
+		console.log(counter)
+
+		let results = []
+
+		let keys = Object.keys(counter)
+		for (let i = 0; i < keys.length; i++) {
+			if (counter[keys[i]] > 2) {
+				results.push(keys[i])
+			}
+		}
+		console.log(results)
+		res.render('inventory/show', { results })
+		})
+		
 	})
-	.then((result) => {
-		res.render('inventory/show', { result })
-	})
-})
 
 
 //??route for cleaning out rows older than 60 days??
