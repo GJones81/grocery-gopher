@@ -1,22 +1,25 @@
 <h1>Login</h1>
- <div class="row">
-    <form class="col s12" method="POST" action="/auth/login">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="email" id="email" name= "email" type="text" class="validate">
-          <label for="email">Email</label>
+
+<div class="container">
+   <div class="row">
+      <form class="col s12" method="POST" action="/auth/login">
+        <div class="row">
+          <div class="input-field col s6">
+              <input placeholder="email" id="email" name= "email" type="text" class="validate">
+              <label for="email">Email</label>
+          </div>
+          <div class="input-field col s6">
+              <input placeholder="password" name="password" id="password" type="password" class="validate">
+              <label for="password">Password</label>
+          </div>
         </div>
-        <div class="input-field col s6">
-          <input placeholder="password" name="password" id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-       <div class="row">
-    	<div class="column s12">
-     		<button class="btn waves-effect waves-light" type="submit">Submit
-    		<i class="material-icons right">send</i>
-    		</button>
-    	</div>
-	</div>
-  </form>
+        <div class="row">
+      	<div class="column s12">
+         		<button class="btn waves-effect waves-light" type="submit">Login
+        		<i class="material-icons right">send</i>
+      		</button>
+      	</div>
+  	 </div>
+    </form>
+  </div>
 </div>
