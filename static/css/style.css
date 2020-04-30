@@ -6,16 +6,21 @@ body {
 	text-align: center;
 }
 
-h1 {
-	color: skyblue;
-}
-
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
 
+  h1 {
+  color: skyblue;
+  font-size: 4em;
+}
+
  main {
     flex: 1 0 auto;
+  }
+
+  a {
+    font-size: 3em;
   }

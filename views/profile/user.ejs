@@ -5,38 +5,40 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col s12 m6">
+		<div class="col s12 l3">
 			<div class="section">
-				<p><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></p>
+				<a href="/list/index">Your Current List</a>
+				<i class="large material-icons">assignment</i>
 			</div>
 		</div>
-		<div class="col s12 m6">
+		<div class="col s12 l3">
 			<div class="section">
-				<p><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
+				<a href="/recipe/index">Your Recipe Page</a>
+				<i class="large material-icons">book</i>
+			</div>
+		</div>
+		<div class="col s12 l3">
+			<div class="section">
+				<a href="/shopping/index">Let's Go Shopping!</a>
+				<i class="large material-icons">shopping_cart</i>
+			</div>
+		</div>
+		<div class="col s12 l3">
+			<div class="section">
+				<a href="/inventory/index">Do an Inventory Check?</a>
+				<i class="large material-icons">search</i>
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col s12 m6 l3">
+		<div class="col s12 m6">
 			<div class="section">
-				<a href="/list/index">Your Current Shopping List</a>
+				<h3><strong>Birthday:</strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY')%></h3>
 			</div>
 		</div>
-		<div class="col s12 m6 l3">
+		<div class="col s12 m6">
 			<div class="section">
-				<a href="/recipe/index">Look Up New Recipes</a>
-			</div>
-		</div>
-	<!--</div>
-	<div class="row">-->
-		<div class="col s12 m6 l3">
-			<div class="section">
-				<a href="/shopping/index">Let's Go Shopping!</a>
-			</div>
-		</div>
-		<div class="col s12 m6 l3">
-			<div class="section">
-				<a href="/inventory/index">Would You Like to do an Inventory Check?</a>
+				<h3><strong>Account Created On:</strong> <%=moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></h3>
 			</div>
 		</div>
 	</div>
