@@ -8,6 +8,7 @@
   },
   "production": {
     "dialect": "postgres",
-    "operatorsAliases": "false"
+    "operatorsAliases": "false",
+    "use_env_variable": "DATABASE_URL"
   }
 }
