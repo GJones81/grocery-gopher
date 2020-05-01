@@ -1,26 +1,34 @@
-<h1>New Recipes For You</h1>
-
-<% recipeData.forEach(r => { %>
-<div class="row">
-	<form action="/recipe/show" method="POST">
-		<div class="col s6">
-			<%= r.recipe.label %>
-			<input type="hidden" name="label" value="<%= r.recipe.label%>">
-			<input type="hidden" name="userId" value="<%= r.userId%>">
-			<% r.recipe.ingredients.forEach(i => { %>
-				<div>
-					<%= i.text %>
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1>New Recipes For You</h1>
+		</div>
+	</div>
+	<hr>
+	<% recipeData.forEach(r => { %>
+	<div class="row">
+		<form action="/recipe/show" method="POST">
+			<div class="col s6">
+				<div class="section">
+					<h4><strong><%= r.recipe.label %></strong></h4>
 				</div>
-				<input type="hidden" name="ingredients" value="<%= i.text %>">	
-			<% }) %>
-			
-		</div>
-		<div class="col s6">
-			<img src="<%= r.recipe.image %>">
-			<input type="hidden" name="image" value="<%= r.recipe.image %>">
-			<input type="hidden" name="url" value="<%= r.recipe.url%>">
-		</div>
-		<input type="submit">
-	</form>
+					<input type="hidden" name="label" value="<%= r.recipe.label%>">
+					<input type="hidden" name="userId" value="<%= r.userId%>">
+				<div>
+				<% r.recipe.ingredients.forEach(i => { %>
+						<h5><strong><%= i.text %></strong></h5>
+					<input type="hidden" name="ingredients" value="<%= i.text %>">	
+				<% }) %>
+				</div>
+			</div>
+			<div class="col s6">
+				<img src="<%= r.recipe.image %>">
+				<input type="hidden" name="image" value="<%= r.recipe.image %>">
+				<input type="hidden" name="url" value="<%= r.recipe.url%>">
+			</div>
+			<button type="sumit"><i class="medium material-icons">add</i><h5>To Favorites!</h5></button>>
+		</form>
+	</div>
+	<hr>
+	<% }) %>
 </div>
-<% }) %>
