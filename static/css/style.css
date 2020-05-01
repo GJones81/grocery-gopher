@@ -12,16 +12,26 @@ body {
     flex-direction: column;
   }
 
-  h1 {
+h1 {
+  font-family: 'Ubuntu', sans-serif;
   color: skyblue;
   font-size: 4em;
 }
 
- main {
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+main {
     flex: 1 0 auto;
   }
 
-  a {
+a {
     font-size: 3em;
   }
 
