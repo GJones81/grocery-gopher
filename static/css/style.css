@@ -21,8 +21,7 @@ body {
     flex: 1 0 auto;
   }
 
-  a,
-  p {
+  a {
     font-size: 3em;
   }
 

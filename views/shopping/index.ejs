@@ -1,17 +1,22 @@
-<h1>Let's Gopher Your Groceries</h1>
-<h2>I'll help you remember your list!</h2>
+<div class="container">
+	<h1>Let's Gopher Your Groceries</h1>
 
-<div class="row">
-	<% list.forEach(item => { %>
-	<div class="col s9">
-		<p><strong><%= item.item_name %></strong></h2>
+	<h3>Here's Your List!</h3>
+
+	<div class="row">
+		<% list.forEach(item => { %>
+		<div class="section">
+		<div class="col s8">
+			<h3><strong><%= item.item_name %></strong></h3>	
+		</div>
+		<div class="col s4">
+			<form action="/shopping/new" method="POST">
+				<input type="hidden" name="userId" value="<%= item.userId %>">
+				<input type="hidden" name="item_name" value="<%= item.item_name%>">
+				<button type="submit"><i class="medium material-icons">shopping_cart</i></button>
+			</form>
+		</div>
+		</div>	
+		<% }) %>
 	</div>
-	<div class="col s3">
-		<form action="/shopping/new" method="POST">
-			<input type="hidden" name="userId" value="<%= item.userId %>">
-			<input type="hidden" name="item_name" value="<%= item.item_name%>">
-			<input type="submit">
-		</form>
-	</div>	
-	<% }) %>
 </div>

@@ -23,7 +23,7 @@ router.get('/index', (req, res) => {
 	})
 })
 
-//router for adding the 'picked' items to the inventory_list
+//route for adding the 'picked' items to the inventory_list
 //also delete the items from the active_list
 router.post('/new', (req, res) => {
 	db.inventory_list.create(req.body)
