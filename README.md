@@ -10,7 +10,7 @@ The issue which I would correct first if I had more time would be the user exper
 
 The original plan was to include a route to add ingredients from the recipe lists into the shopping list. The API data was not properly formatted for this, and will require some processing and handling to keep the database tidy.
 
-Additionally, the Active_list and Recipe models include a column titled shareId. The sharedId column was included to facilitate future scaling to incorporate the sharing of profiles, and thus shopping lists. Furthermore, the birthdate column was also included to allow for age evaluation in a later version.
+Additionally, the Active_list and Recipe models include a column titled sharedId. The sharedId column was included for future scaling to incorporate the sharing of profiles, and thus shopping lists. Furthermore, the birthdate column was also included to allow for age evaluation in a later version.
 
 It would be very interesting to incorporate some level of machine learning into this app. Currently the user sets the order in which the shopping list is presented. I'm curious if this could become the input for a subroutine which, over time, learns each users preferred route through the store.
 
@@ -22,7 +22,8 @@ It would be very interesting to incorporate some level of machine learning into 
 * Settings for PostgresSQL and Sequelize
 * Hashed passwords
 * EJS templating and EJS layouts
-* Sequelize User model
+* Sequelize User, Active_list, Inventory_list, and 
+Recipe models
 * Materialize styling - nav and footer
 * Axios for the API call
 
@@ -155,7 +156,6 @@ Remove defaulty stuff. For example:
 * Title in 'layout.ejs'
 * Logo field in the nav bar
 * Description and Repository fields in package.json
-* Remove this boilerplate's readme content (Don't leave this one here on the next project)
 * Switch Favicon to the new project's favicon
 
 ### 4. Create new database for new project 
@@ -171,9 +171,9 @@ config/config.json
 Update database name to new_db_name
 Check username, password, and dialect
 
-### 6. Check model 
+### 6. Check models 
 
-Check the model for relevance to the requirements of the new project, and change as
+Check the models for relevance to the requirements of the new project, and change as
 needed. The model will dictate what columns the table has.
 
 ### 7. Run Sequelize migrations
@@ -191,6 +191,7 @@ touch .env
 Include the following .env variables
 
 * SESSION_SECRET  - this is the key for session to use
+* API Id and Key for https://developer.edamam.com/
 
 ### 9. Run the server, ensure it works
 
@@ -204,14 +205,14 @@ Without nodemon
 node index.js
 ...
 
-### 10. Delete the origin that points to the boilerplate repository
+### 10. Delete the origin that points to the grocery-gopher repository
 
 If we run this command:
 ...sh
 git remote -v
 ...
 
-It will show 'origin' as being hooked up to the boilerplate repository. We want a fresh
+It will show 'origin' as being hooked up to the grocery-gopher repository. We want a fresh
 repository instead, so let's delete the origin remote:
 
 ...sh
