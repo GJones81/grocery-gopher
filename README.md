@@ -1,5 +1,6 @@
 # Grocery Gopher
 
+This is an express app for saving, editing, and using a grocery list while shopping. It is styled with a mobile-first mindset. The app also includes an API to retrieve recipes and save them to a database
 
 ## What it includes
 
@@ -11,6 +12,7 @@
 * EJS templating and EJS layouts
 * Sequelize User model
 * Materialize styling - nav and footer
+* Axios for the API call
 
 ## Included Models
 
@@ -22,12 +24,44 @@
 |lastname | String  | User's last name|
 |email |  String  | Unique Login  |
 |password | String  | Hash  |
+|username | String  | - |
 |birthday | Date  | - |
 |admin  | Boolean | Defaulted False |
-|pic  | String  | - |
-|bio  | Text  | - |
 |createdAt  | Date  | created at  |
 |updatedAt  | Date  | last updated at |
+
+**Active_list Model**
+| Column  | Type  | Notes |
+|----------|----------|------------------|
+| id  | Integer | Serial primary key  |
+| userId  | Integer | Foreign key to User table |
+| sharedId  | Integer | Intended for later scaling  |
+| item_name | String  | The grocery item  |
+| list_order  | Integer | A value for organizing the list |
+| createdAt | Date  | created at  |
+| updatedAt | Date  | last updated at |
+
+**Inventory_list Model**
+| Column  | Type  | Notes |
+|----------|----------|------------------|
+| id  | Integer | Serial primary key  |
+| userId  | Integer | Foreign key to User table |
+| item_name | String  | the grocery item  |
+| createdAt  | Date  | created at  |
+| updatedAt | Date  | last updated at |
+
+**Recipe Model**
+| Column  | Type  | Notes |
+|----------|----------|-------------------|
+| id  | Integer | Serial primary key  |
+| userId  | Integer | Foreign key to User table |
+| sharedId  | Integer | Intended for later scaling  |
+| label | String  | The title of the dish |
+| ingredients | Array:String  | An array of strings |
+| image | String  | url to an image |
+| url | String  | url to the directions   |
+| createdAt | Date  | created at  |
+| updatedAt | Date  | last updated  |
 
 
 
@@ -51,8 +85,36 @@
 |Method | Path  | Purpose |
 |----------|----------|--------------------|
 |GET  | 'profile/user'  | User Profile  |
-|GET  | 'profile/guest/:id' | Guest Profile |
 |GET  | 'profile/admin' | Admin Profile |
+
+# Inventory
+| Method  | Path  | Purpose |
+|----------|----------|---------------------|
+| GET | 'inventory/index' | Shows the inventory list|
+| POST  | 'inventory/index' | Adds inventory item to shopping list|
+
+# List
+| Method  | Path  | Purpose |
+|----------|----------|--------------------|
+| GET | 'list/index'  | Gets the current shopping list|
+| POST  | 'list/index'  | Adds items to current list  |
+| PUT   | 'list/index'  | Edits the list_order number |
+| DELETE  | 'list/index'  | Deletes an item from the list|
+
+# Shopping
+| Method  | Path  | Purpose |
+|----------|----------|--------------------|
+| GET | 'shopping/index'  | Query orders by list_order, limit 3|
+| POST  | 'shopping/new'  |Adds item to inventory_list, deletes from active_list|
+
+# Recipe
+| Method  | Path  | Purpose |
+|----------|----------|--------------------|
+| GET | 'recipe/index'  | Gets recipe page  |
+| GET | 'recipe/new'  | Calls API for recipes |
+| POST  | 'recipe/show' | Adds new recipes to table |
+| GET | 'recipe/favorite' | Gets recipes from table |
+
 
 ## Directions for Use
 
