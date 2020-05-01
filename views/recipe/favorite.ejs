@@ -1,13 +1,22 @@
-<h1>Your Favorited Recipes</h1>
-
-<% favorites.forEach(f => { %>
-<div class="row">
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1>Your Favorited Recipes</h1>
+		</div>
+	</div>
+	<% favorites.forEach(f => { %>
+	<div class="row">
 		<div class="col s6">
-			<%= f.label %>
-			<%= f.ingredients %>
+			<div class="section">
+				<h4><strong><%= f.label %></strong></h4>
+			</div>
+			<div class="section">
+				<h5><strong><%= f.ingredients %></strong></h5>
+			</div>	
 		</div>
 		<div class="col s6">
 			<img src="<%= f.image %>">
 		</div>
-</div>
+	</div>
 <% }) %>
+</div>

@@ -1,16 +1,40 @@
-<h1>Inventory Check</h1>
-<h2>I'll help you remember all the items you consistently buy</h2>
-
-<div class="row">
-		<% results.forEach(item => { %>
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1>Inventory Check</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<h3>I'll help you remember all the items you consistently buy</h3>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col s6">
-			<%= item %>
 		</div>
 		<div class="col s6">
-			<form action="/inventory/index" method="POST">
-				<input type="hidden" name="item_name" value="<%= item %>">
-				<input type="submit">
-			</form>
-		</div>	
-		<% }) %>
+			<h4><strong>Click the icon to add the item to your current list</strong></h4>
+		</div>
+	</div>
+	<% results.forEach(item => { %>
+	<div class="row">
+		<div class="section valign-wrapper">
+			<div class="col s6">
+				<h3><strong><%= item %></strong></h3>
+			</div>
+			<div class="col s6">
+				<form action="/inventory/index" method="POST">
+					<input type="hidden" name="item_name" value="<%= item %>">
+					<button type="submit"><i class="medium material-icons">shopping_cart</i></button>
+				</form>
+			</div>
+		</div>
+	</div>		
+	<% }) %>
+</div>
+
+<div class="row">
+	<div class="col s12">
+		<h4><strong>The Gopher makes a list of items you've bought two or more times in the last 30 days. If nothing appears here it's becuase his inventory list doesn't have anything</strong></h4>
+	</div>
 </div>

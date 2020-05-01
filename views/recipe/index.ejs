@@ -1,10 +1,26 @@
-<h1>Your Recipe Page</h1>
-
-<h2>Get Some New Recipes to Checkout</h2>
-
-<form method="GET" action="/recipe/new">
-	<input type="text" name="ingredient">
-	<input type="submit">
-</form>
-
-<a href="/recipe/favorite">Your Favorited Recipes</a>
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1>Your Recipe Page</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<h3>Get Some New Recipes to Checkout</h3>
+			<h4>Type in the main ingredient to search</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s6 push-s3">
+			<form method="GET" action="/recipe/new">
+				<input type="text" name="ingredient">
+				<button type="submit"><i class="medium material-icons">book</i><i class="medium material-icons">search</i></button>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s8 push-s2">
+			<a href="/recipe/favorite"><i class="large material-icons">book</i>Your Favorited Recipes</a>
+		</div>
+	</div>	
+</div>

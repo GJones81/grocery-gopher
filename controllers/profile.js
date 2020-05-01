@@ -15,19 +15,6 @@ router.get('/user', (req, res) => {
 	res.render('profile/user', { moment })
 })
 
-//GET /profile/guest/userId - viewing a user's profile
-//as a guest
-router.get('/guest/:id', (req, res) => {
-	db.user.findByPk(req.params.id)
-		.then(userProfile => {
-			res.render('profile/guest', { moment, userProfile })
-		})
-		.catch(err => {
-			console.log(err)
-			res.render('error')
-		})
-	})
-
 //a profile for admins
 //NOTE: Protect this route from users who are not
 //logged in, or users
