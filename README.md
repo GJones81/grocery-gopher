@@ -139,7 +139,7 @@ git clone <repo_link> <new_name>
 Example:
 
 ...sh
-git clone https://github.com/GJones81/node-auth-boiler.git new_name_example
+git clone https://github.com/GJones81/grocery-gopher.git new_name_example
 ...
 
 ### 2. Install the modules from package.json
