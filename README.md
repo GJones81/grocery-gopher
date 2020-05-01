@@ -1,6 +1,18 @@
 # Grocery Gopher
 
-This is an express app for saving, editing, and using a grocery list while shopping. It is styled with a mobile-first mindset. The app also includes an API to retrieve recipes and save them to a database
+This is an express app for saving, editing, and using a grocery list while shopping. It is styled with a mobile-first mindset. The app also includes an API to retrieve recipes and save them to a database.
+
+This app makes use of two tables to manage the grocery list. The active_list table is for the current list only, and is populated by a findOrCreate function so there aren't duplicate entries. The inventory_list is populated by a simple create function. The presence of duplicate entires is used to create a list of all items purchased twice or more in the last 30 days. 
+
+This is done by quering the table for all items purchased in the last 30 days. The resulting data is then processed to created an array of objects wherein the key is an item name and the value is the number of times it appeared. Then an 'if' statement evaluates the key:value pairs, adding all values of two or greater into a new array, which sent back to the client-side to be displayed.
+
+The issue which I would correct first if I had more time would be the user experience around adding and reordering items on their current shopping list. Currently the user must type in and submit the order number for each item one at a time, as the button for each button only works for that item. Furthermore, the app submits the edit to database and then requeries the database to rerender the page. The result is the items on the list changing order after each submition. Beyond that, it would be nice to facilitate changing the order by pressing and dragging each item row into the desired place. 
+
+The original plan was to include a route to add ingredients from the recipe lists into the shopping list. The API data was not properly formatted for this, and will require some processing and handling to keep the database tidy.
+
+Additionally, the Active_list and Recipe models include a column titled shareId. The sharedId column was included to facilitate future scaling to incorporate the sharing of profiles, and thus shopping lists. Furthermore, the birthdate column was also included to allow for age evaluation in a later version.
+
+It would be very interesting to incorporate some level of machine learning into this app. Currently the user sets the order in which the shopping list is presented. I'm curious if this could become the input for a subroutine which, over time, learns each users preferred route through the store.
 
 ## What it includes
 
